@@ -26,9 +26,9 @@ function createCustomerProfile($email)
 
     // Set credit card information for payment profile
     $creditCard = new AnetAPI\CreditCardType();
-    $creditCard->setCardNumber("4242424242424242");
-    $creditCard->setExpirationDate("2038-12");
-    $creditCard->setCardCode("142");
+    $creditCard->setCardNumber("4912881037599208");
+    $creditCard->setExpirationDate("2023-07");
+    $creditCard->setCardCode("522");
     $paymentCreditCard = new AnetAPI\PaymentType();
     $paymentCreditCard->setCreditCard($creditCard);
 
@@ -85,7 +85,7 @@ function createCustomerProfile($email)
     $request->setRefId($refId);
     $request->setProfile($customerProfile);
 
-    // Create the controller and get the response
+    $request->setValidationMode("liveMode");// Create the controller and get the response
     $controller = new AnetController\CreateCustomerProfileController($request);
     $response = $controller->executeWithApiResponse(\net\authorize\api\constants\ANetEnvironment::SANDBOX);
   
